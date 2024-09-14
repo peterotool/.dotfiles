@@ -1,0 +1,11 @@
+[submodule "stow/tmux/.tmux/plugins/tpm"]
+	path = stow/tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
+
+[submodule "stow/nvim/.config/nvim"]
+	path = stow/nvim/.config/nvim
+	url = git@github.com:peterotool/nvim.git
+
+[submodule "stow/alacritty/.config/alacritty/catppuccin"]
+	path = stow/alacritty/.config/alacritty/catppuccin
+	url = https://github.com/catppuccin/alacritty.git
