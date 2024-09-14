@@ -1,0 +1,51 @@
+import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal.family = "MesloLGS Nerd Font Mono"
+size = 18
+
+# alacritty --print-events
+
+# [[keyboard.bindings]]
+# action = "SpawnNewInstance"
+# key = "N"
+# mods = "Control"
+
+# [[keyboard.bindings]]
+# action = "Quit"
+# key = "Q"
+# mods = "Control"
+
+# [[keyboard.bindings]]
+# action = "ToggleFullscreen"
+# key = "F"
+# mods = "Control"
+
+[scrolling]
+history = 10000
+multiplier = 10
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = "|:\"' {}()[]<>"
+
+[window]
+decorations = "full"
+dynamic_padding = false
+opacity = 1.0
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[window.padding]
+x = 5
+y = 5
