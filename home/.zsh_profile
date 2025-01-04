@@ -1,0 +1,56 @@
+export VISUAL=nvim
+export EDITOR=nvim
+export MANPAGER='nvim +Man!'
+export RUFF_CONFIG=~/.config/ruff/ruff.toml
+
+eval "$(starship init zsh)"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# brew Shell Completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+
+# Explicitly source the fzf completion script
+if [ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]; then
+    # shellcheck disable=SC1091
+    source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+fi
+
+eval "$(zoxide init zsh)"
+
+# Setup a custom completions directory
+fpath=($HOME/.local/share/zsh/completions $fpath)
+
+autoload -U zmv
+autoload -U promptinit && promptinit
+autoload -U colors && colors
+# completions
+autoload -Uz compinit && compinit
+
+# Enable zsh-syntax-highlighting
+if [ -f "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+    # shellcheck disable=SC1091
+    source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+if [ $commands[gcloud] ];then source $(brew --prefix)/share/google-cloud-sdk/path.zsh.inc; fi
+if [ $commands[gcloud] ];then source $(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc; fi
+
+# https://helm.sh/docs/helm/helm_completion_zsh/
+if [ $commands[helm] ]; then source <(helm completion zsh); fi
+
+# https://kubernetes.io/docs/reference/kubectl/cheatsheet/#zsh
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+export UV_EXTRA_INDEX_URL="$(pip3 config get global.extra-index-url)"
+
+_uv_run_mod() {
+    if [[ "$words[2]" == "run" && "$words[CURRENT]" != -* ]]; then
+        _arguments '*:filename:_files -g "*.py"'
+    else
+        _uv "$@"
+    fi
+}
+compdef _uv_run_mod uv
