@@ -1,3 +1,9 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+command_timeout = 3600
+
 format = """
 $username\
 $hostname\
@@ -6,17 +12,35 @@ $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-$fill\
+$docker_context\
+$golang\
 $python\
-$cmd_duration $jobs $time\
+$rust\
+$lua\
+$cmd_duration $jobs \
 $line_break\
-$character"""
+$time $character"""
+
+[docker_context]
+format = "[$symbol$context ]($style)"
+symbol = " "
+
+[golang]
+format = "[$symbol($version )]($style)"
+symbol = " "
 
 [python]
-format = '[$symbol$version $virtualenv]($style)'
+style = 'yellow'
+symbol = ' '
+format = "[$symbol($version )($virtualenv)]($style)"
 
-[fill]
-symbol = " "
+[rust]
+format = "[$symbol($version )]($style)"
+symbol = " "
+
+[lua]
+format = "[$symbol($version )]($style)"
+symbol = " "
 
 [directory]
 style = "blue"
@@ -52,26 +76,12 @@ style = "bright-black"
 disabled = false
 
 [cmd_duration]
+disabled = true
 format = "[$duration]($style)"
 style = "yellow"
 
-[memory_usage]
-symbol = " "
-
-[rust]
-symbol = " "
-
 [time]
 disabled = false
-style = "bold white"
 format = "[$time]($style)"
-
-[custom.stunnel]
-when = "ps aux | grep stunnel | grep -v grep"
-command = "ps -o etime= -p $(ps aux | grep stunnel | grep -v grep | awk '{print $2}')"
-style = "red"
-format = "[TUNNEL OPEN for $output]($style)"
-
-[gcloud]
-disabled = false
-format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+time_format = "%H:%M"
+style = "fg:#585858"
