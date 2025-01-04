@@ -1,0 +1,119 @@
+{
+  "editor.accessibilitySupport": "off",
+  "editor.minimap.enabled": false,
+  "files.exclude": {
+    "**/.git": false
+  },
+  "terminal.integrated.shellIntegration.enabled": false,
+  "terminal.integrated.fontFamily": "'MesloLGS Nerd Font Mono'",
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  // Markdown
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    },
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  // Markdownlint
+  // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+  "markdownlint.config": {
+    "MD013": { "line_length": 240 },
+    "MD034": false,
+    "MD038": false,
+    "MD037": false
+  },
+  "workbench.editor.enablePreview": false,
+
+  // Vim
+  // https://gist.github.com/RainbowDashy/c72e330aa66f2fd609b51c6bf9887780
+  // https://dev.to/ansonh/10-vs-code-vim-tricks-to-boost-your-productivity-1b0n#9-highlight-yanked-text
+  "editor.lineNumbers": "relative",
+  // Cursor Surrounding Lines
+  "editor.cursorSurroundingLines": 8,
+  "vim.leader": "<Space>",
+  "vim.incsearch": true,
+  // Yank to System Clipboard
+  "vim.useSystemClipboard": true,
+  // Highlight Yanked Text
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#a9dc7660",
+  "vim.highlightedyank.duration": 250,
+
+  "vim.surround": true,
+  "vim.hlsearch": true,
+  //vim.keymap.set('x', '<leader>p', [["_dP]])
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<leader>", "p"], "after": ["\"", "_", , "d", "P"] }
+  ],
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+
+    // splits
+    { "before": ["leader", "v"], "commands": [":vsplit"] },
+    { "before": ["leader", "s"], "commands": [":split"] },
+
+    // panes
+    {
+      "before": ["leader", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["leader", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["leader", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["leader", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+
+    // NICE TO HAVE
+    { "before": ["leader", "w"], "commands": [":w!"] },
+    { "before": ["leader", "q"], "commands": [":q!"] },
+    { "before": ["leader", "x"], "commands": [":x!"] },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    { "before": ["leader", "o"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["leader", "f"], "commands": ["editor.action.formatDocument"] },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    }
+  ],
+
+  "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    // Move selected lines while staying in visual mode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    // toggle comment selection
+    { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
+  ]
+}
