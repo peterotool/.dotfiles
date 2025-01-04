@@ -33,7 +33,7 @@ addToPathFront() {
     fi
 }
 
-# uv uvx
+# rust binaries
 addToPathFront "$HOME/.cargo/bin"
 
 # ruff

@@ -6,6 +6,12 @@
 	untrackedcache = true
 	fsmonitor = true
 
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+
 [user]
 	name = José Pedro Cordero
 	email = peterotool@gmail.com
@@ -14,12 +20,30 @@
 	diffFilter = delta --color-only
 
 [delta]
-	navigate = true  # use n and N to move between diff sections
-	light = false
-	side-by-side = true
+	file-decoration-style = black ul
+	file-style = black
+	hunk-header-decoration-style = black box
+	hunk-header-line-number-style = black
+	line-numbers = true
+	line-numbers-left-format = {nm:>3}│
+	line-numbers-left-style = black
+	line-numbers-minus-style = black
+	line-numbers-plus-style = black
+	line-numbers-right-format = {np:>3}│
+	line-numbers-right-style = black
+	line-numbers-zero-style = black
+	minus-emph-style = red bold
+	minus-empty-line-marker-style = omit
+	minus-style = red
+	navigate = false
+	plus-emph-style = green bold
+	plus-empty-line-marker-style = omit
+	plus-style = green
+	side-by-side = false
+	true-color = auto
+	zero-style = black
 
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+[submodule]
+	recurse = true
+[pull]
+	rebase = true
