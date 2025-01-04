@@ -14,11 +14,8 @@
 
 stow_dotfiles() {
 	local files=(
-		# ".aliases"
 		".config/starship.toml"
 		".gitconfig"
-		# ".jq"
-		# ".profile*"
 		".zshrc"
 		".zprofile"
 		"aliases.zsh"
@@ -30,6 +27,7 @@ stow_dotfiles() {
 	local folders=(
 		".config/fd"
 		".config/git"
+		".config/ripgrep"
 		".config/alacritty"
 		".config/nvim"
 		".tmux/plugins"
