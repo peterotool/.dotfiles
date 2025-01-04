@@ -9,14 +9,12 @@ alias c="clear"
 alias cd="z"
 alias dc=cd
 alias cat="bat -p"
-# alias code="open -b com.microsoft.VSCode"
 
 alias jj='pbpaste | jsonpp | pbcopy'
 alias rm=trash
 
 alias v='nvim -w ~/.vimlog "$@"'
-# alias vi='nvim -w ~/.vimlog "$@"'
-alias vim='nvim -w ~/.vimlog "$@"'
+alias y='yazi'
 
 alias log="git log --all  --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias wlog="watch git log --all  --graph --abbrev-commit --date=relative"
