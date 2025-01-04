@@ -1,0 +1,39 @@
+{
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.enabled": false,
+    "files.exclude": {
+        "**/.git": false
+    },
+    "terminal.integrated.shellIntegration.enabled": false,
+    // "extensions.experimental.affinity": {
+        // "asvetliakov.vscode-neovim": 1
+    // },
+    "terminal.integrated.fontFamily": "'MesloLGS Nerd Font Mono'",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    // Markdown
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": "explicit"
+        },
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    
+    },
+    // Markdownlint
+    // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+    "markdownlint.config": {
+        "MD013": {"line_length": 240},
+        "MD034": false,
+        "MD038": false,
+        "MD037": false
+    },
+    "workbench.editor.enablePreview": false,
+    "geminicodeassist.project": ""
+}
