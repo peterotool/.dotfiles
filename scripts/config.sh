@@ -14,27 +14,30 @@
 
 stow_dotfiles() {
 	local files=(
-		# ".aliases"
-		".config/starship.toml"
 		".gitconfig"
-		# ".jq"
-		# ".profile*"
-		".zshrc"
-		".zprofile"
-		"aliases.zsh"
-		"history.zsh"
+		".config/starship.toml"
 		".tmux.conf"
 		".tmux-cht-command"
 		".tmux-cht-languages"
+		".gcloud-switch-account.sh"
+		".zprofile"
+		".zsh_profile"
+		".zshrc"
+		"aliases.zsh"
+		"history.zsh"
+		"Library/Application Support/Code/User/settings.json" # vscode
 	)
 	local folders=(
 		".config/fd"
 		".config/git"
+		".config/ripgrep"
 		".config/alacritty"
+		".config/ghostty"
 		".config/nvim"
+		".config/ruff"
+		".config/yazi"
 		".tmux/plugins"
 		".local/scripts"
-		".local/share/zsh/completions"
 		# ".ssh" # important
 	)
 	info "Removing existing config files"
@@ -42,7 +45,7 @@ stow_dotfiles() {
 		rm -f "$HOME/$f" || true
 	done
 
-	# Create the folders to avoid symlinking folders
+	info "Create the folders to avoid symlinking folders"
 	for d in "${folders[@]}"; do
 		rm -rf "${HOME:?}/$d" || true
 		mkdir -p "$HOME/$d"
@@ -52,10 +55,19 @@ stow_dotfiles() {
 	local STOW_FOLDERS="$(find stow -maxdepth 1 -type d -mindepth 1 | awk -F "/" '{print $NF}' ORS=' ')"
 	info "Stowing: $STOW_FOLDERS"
 
-	for folder in $(echo $STOW_FOLDERS)
-	do
+	for folder in $STOW_FOLDERS; do
+		if [[ "$folder" == "vscode" ]]; then
+			echo "Skipping folder: $folder"
+			continue
+		fi
 		stow -d stow --verbose 1 --target "$HOME" "$folder"
 	done
+
+	# vscode
+	# -d "$HOME/.dotfiles/stow" → Specifies the directory containing Stow packages (vscode in this case).
+	# -t "$HOME/Library/Application Support/Code/User" → Sets the target directory where symlinks should be created.
+	# vscode → The package name (a subdirectory inside stow/).
+	stow -d "$HOME/.dotfiles/stow" -t "$HOME/Library/Application Support/Code/User" vscode
 
 	# set permissions
 	# chmod a+x ~/.git-templates/hooks/pre-commit
