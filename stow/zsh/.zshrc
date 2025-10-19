@@ -1,5 +1,6 @@
-# https://zenzes.me/mastering-your-zsh-configuration-with-antigen-and-oh-my-zsh/
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+# https://zenzes.me/mastering-your-zsh-configuration-with-antigen-and-oh-my-zsh/
 source $(brew --prefix)/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.

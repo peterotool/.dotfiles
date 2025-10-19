@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# brew install --cask nikitabobko/tap/aerospace -- https://nikitabobko.github.io/AeroSpace/guide
 brew install --cask bitwarden
 brew install --cask cursor
 brew install --cask dbeaver-community
@@ -68,6 +69,7 @@ brew install yq
 brew install yt-dlp
 brew install zoxide
 brew install zsh-syntax-highlighting
+brew install zsh-vi-mode && echo "tesing the tool"
 
 brew install helm
 brew install kubernetes-cli
