@@ -5,7 +5,7 @@
     "**/.git": false
   },
   "terminal.integrated.shellIntegration.enabled": true,
-  "terminal.integrated.suggest.enabled": true,
+  // "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
   "[python]": {
     "editor.formatOnSave": true,
@@ -14,6 +14,11 @@
       "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+    // Terraform
+    "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
   },
   // Markdown
   "[markdown]": {
@@ -32,8 +37,8 @@
     "MD038": false,
     "MD037": false
   },
+  "markdownlint.run": "onSave",
   "workbench.editor.enablePreview": false,
-
   // Vim
   // https://gist.github.com/RainbowDashy/c72e330aa66f2fd609b51c6bf9887780
   // https://dev.to/ansonh/10-vs-code-vim-tricks-to-boost-your-productivity-1b0n#9-highlight-yanked-text
@@ -49,7 +54,27 @@
     "vscode",
     "vscode-insiders",
     "docker-desktop"
-  ]
+  ],
+  "yaml.schemas": {
+    "file:///Users/peter/.vscode/extensions/continue.continue-1.2.11-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "file:///Users/peter/.vscode/extensions/continue.continue-1.2.14-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "file:///Users/peter/.vscode/extensions/continue.continue-1.2.15-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "file:///Users/peter/.vscode/extensions/continue.continue-1.2.16-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ]
+  },
+  "docker.extension.enableComposeLanguageServer": false,
+  "terminal.integrated.initialHint": false,
+  "azureTerraform.survey": {
+    "surveyPromptDate": "2026-02-23T17:47:51.338Z",
+    "surveyPromptIgnoredCount": 1
+  }
   /*
   "vim.leader": "<Space>",
   "vim.incsearch": true,

@@ -1,9 +1,5 @@
-alias pip="uv pip"
-
-alias t='tmux'
+alias t='terraform'
 alias ta='tmux attach -t'
-alias tns='tmux new -s'
-alias tl='tmux list-sessions'
 
 alias s='source ~/.zshrc'
 
@@ -11,7 +7,9 @@ alias c="clear"
 alias cd="z"
 alias dc=cd
 alias cat="bat -p"
+alias g="glow -p -w 200"
 
+# Take whatever JSON I currently have copied, pretty-print it, and replace the clipboard with the formatted version.
 alias jj='pbpaste | jsonpp | pbcopy'
 alias rm=trash
 
@@ -28,6 +26,15 @@ alias wlog="watch git log --all  --graph --abbrev-commit --date=relative"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # remove broken symlinks
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
+
+
+a() {
+  if [ -f ".venv/bin/activate" ]; then
+    source .venv/bin/activate
+  else
+    echo "❌ No .venv found"
+  fi
+}
 
 function take {
     mkdir -p $1

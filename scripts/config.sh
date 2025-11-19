@@ -63,7 +63,8 @@ stow_dotfiles() {
 		stow -d stow --verbose 1 --target "$HOME" "$folder"
 	done
 
-	# vscode
+	# VSCODE
+
 	# -d "$HOME/.dotfiles/stow" → Specifies the directory containing Stow packages (vscode in this case).
 	# -t "$HOME/Library/Application Support/Code/User" → Sets the target directory where symlinks should be created.
 	# vscode → The package name (a subdirectory inside stow/).
