@@ -1,3 +1,4 @@
+export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 export VISUAL=nvim
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'

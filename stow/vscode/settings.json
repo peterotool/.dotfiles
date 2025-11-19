@@ -5,7 +5,7 @@
     "**/.git": false
   },
   "terminal.integrated.shellIntegration.enabled": true,
-  "terminal.integrated.suggest.enabled": true,
+  // "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
   "[python]": {
     "editor.formatOnSave": true,
@@ -32,6 +32,14 @@
     "MD038": false,
     "MD037": false
   },
+  "markdownlint.run": "onSave",
+  "markdownlint.ignore": [
+    "**/node_modules",
+    "**/dist",
+    "**/build",
+    "**/.venv",
+    "**/__pycache__"
+  ],
   "workbench.editor.enablePreview": false,
 
   // Vim
@@ -49,7 +57,13 @@
     "vscode",
     "vscode-insiders",
     "docker-desktop"
-  ]
+  ],
+  "yaml.schemas": {
+    "file:///Users/peter/.vscode/extensions/continue.continue-1.2.10-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ]
+  },
+  "docker.extension.enableComposeLanguageServer": false
   /*
   "vim.leader": "<Space>",
   "vim.incsearch": true,
