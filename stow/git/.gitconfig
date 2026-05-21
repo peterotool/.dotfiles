@@ -2,7 +2,7 @@
 	pager = delta
 	# avoid problems when changing a case of a filename
 	ignorecase = false
-	excludesfile = ~/.config/git/ignore
+	excludesfile = /Users/peter/.config/git/ignore
 	untrackedcache = true
 	fsmonitor = true
 
@@ -13,37 +13,57 @@
 	show = delta
 
 [user]
-	name = José Pedro Cordero
-	email = peterotool@gmail.com
+	name = José Pedro
+	email = josecordero.imagemaker@latam.com
 
 [interactive]
 	diffFilter = delta --color-only
 
 [delta]
-	file-decoration-style = black ul
-	file-style = black
-	hunk-header-decoration-style = black box
-	hunk-header-line-number-style = black
+	side-by-side = true
+	navigate = true
+
+	# File headers
+	file-style = bold yellow
+	file-decoration-style = yellow ul
+
+	# Hunk headers
+	hunk-header-style = bold blue
+	hunk-header-decoration-style = blue box
+
+	# Line numbers
 	line-numbers = true
 	line-numbers-left-format = {nm:>3}│
-	line-numbers-left-style = black
-	line-numbers-minus-style = black
-	line-numbers-plus-style = black
 	line-numbers-right-format = {np:>3}│
-	line-numbers-right-style = black
-	line-numbers-zero-style = black
+	line-numbers-left-style = dim
+	line-numbers-right-style = dim
+	line-numbers-minus-style = red
+	line-numbers-plus-style = green
+	line-numbers-zero-style = dim
+
+	# Removed lines
+	minus-style = red dim
 	minus-emph-style = red bold
 	minus-empty-line-marker-style = omit
-	minus-style = red
-	navigate = false
+
+	# Added lines
+	plus-style = green dim
 	plus-emph-style = green bold
 	plus-empty-line-marker-style = omit
-	plus-style = green
-	side-by-side = false
+
+	# Unchanged lines
+	zero-style = dim
+
+	# Color handling
 	true-color = auto
-	zero-style = black
 
 [submodule]
 	recurse = true
 [pull]
 	rebase = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

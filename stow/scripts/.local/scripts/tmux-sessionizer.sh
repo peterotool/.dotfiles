@@ -3,7 +3,13 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Code ~/Work -mindepth 1 -maxdepth 1 -type d -not -name '.git' | fzf)
+    selected=$(
+        {
+            find ~/Code ~/Work -mindepth 1 -maxdepth 1 -type d -not -name '.git'
+            echo "$HOME/.dotfiles"
+            echo "$HOME/.dotfiles/stow/nvim/.config/nvim"
+        } | fzf
+    )
 fi
 
 if [[ -z $selected ]]; then

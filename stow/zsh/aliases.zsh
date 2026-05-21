@@ -18,15 +18,29 @@ alias y='yazi'
 alias gc='gcloud beta interactive'
 alias sw='bash ~/.local/scripts/gcloud-switch-account.sh'
 
-alias log="git log --all  --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-alias wlog="watch git log --all  --graph --abbrev-commit --date=relative"
+
+# Chronological Git history view
+# Best for daily development, code reviews, and understanding recent activity.
+# Preserves graph readability while showing commits mostly in time order.
+alias ghist="git log --all --graph --decorate=short --date-order \
+--pretty=format:'%C(auto)%h%Creset %C(yellow)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset' \
+--abbrev-commit --date=relative"
+
+# Topology-first Git branch tree
+# Best for debugging merges, rebases, and understanding branch ancestry.
+# Strictly preserves branch topology and merge relationships.
+alias gtree="git log --all --graph --decorate=short --topo-order \
+--pretty=format:'%C(auto)%h%Creset %C(red)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset' \
+--abbrev-commit --date=relative"
 
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
 # remove broken symlinks
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
+alias vi='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 
 a() {
   if [ -f ".venv/bin/activate" ]; then
@@ -45,18 +59,27 @@ function weather() {
     curl "http://wttr.in/${1}";
 }
 
-alias moon="curl 'http://wttr.in/Moon'"
 
-
-# FZF ---------------------------------------------------------------------
-
-alias vi='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
-
-# https://www.youtube.com/watch?v=Sh-fJWB9xpw
 copy-line () {
-  rg --line-number "${1:-.}" | sk --delimiter ':' --preview 'bat --color=always --highlight-line {2} {1}' | awk -F ':' '{print $3}' | sed 's/^\s+//' | pbcopy
+  rg --line-number --no-heading --color=never "${1:-.}" \
+    | fzf --delimiter ':' \
+          --preview 'bat --color=always --highlight-line {2} {1}' \
+    | cut -d: -f3- \
+    | sed 's/^[[:space:]]\+//' \
+    | pbcopy
 }
 
 open-at-line () {
-  vim $(rg --line-number "${1:-.}" | sk --delimiter ':' --preview 'bat --color=always --highlight-line {2} {1}' | awk -F ':' '{print "+"$2" "$1}')
+  local selection
+  selection=$(rg --line-number --no-heading --color=never "${1:-.}" \
+    | fzf --delimiter ':' \
+          --preview 'bat --color=always --highlight-line {2} {1}')
+
+  [ -n "$selection" ] || return 0
+
+  local file line
+  file=$(printf '%s\n' "$selection" | cut -d: -f1)
+  line=$(printf '%s\n' "$selection" | cut -d: -f2)
+
+  vim +"$line" "$file"
 }

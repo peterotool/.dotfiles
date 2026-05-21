@@ -2,7 +2,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+# How long it waits for commands (git, etc)
 command_timeout = 3600
+# How long Starship scans the directory
+scan_timeout = 100
 
 format = """
 $username\
