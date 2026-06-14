@@ -69,6 +69,7 @@ export PATH="/Users/peter/.local/bin/codeen:$PATH"
 
 eval "$(starship init zsh)"
 
+export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1
+eval "$(tv init zsh)"
 # IMPORTANT: must be the last thing
 eval "$(zoxide init zsh)"
-export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1

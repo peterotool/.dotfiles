@@ -45,6 +45,7 @@ brew install lua
 brew install node
 brew install python
 brew install rust
+brew install tree-sitter-cli && echo "required by nvim-treesitter to install/update parsers"
 brew install lua-language-server
 brew install oracle-jdk
 
@@ -53,6 +54,7 @@ brew install uv
 
 # Code Quality & Formatting
 brew install shfmt && echo "Autoformat shell script source code"
+brew install stylua && echo "Code formatter for Lua"
 brew install markdownlint-cli && echo "lints Markdown files for style and consistency"
 brew install prettier && echo "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
 brew install shellcheck && echo "static analysis tool for shell scripts (linter)"
@@ -66,6 +68,7 @@ brew install --cask github
 brew install bat && echo "cat clone with syntax highlighting and Git integration"
 brew install cheat && echo "view and create interactive cheat sheets in the terminal"
 brew install fd && echo "simple, fast, user-friendly alternative to find"
+brew install television
 brew install fzf && echo "interactive fuzzy finder for command-line search"
 brew install ripgrep && echo "fast recursive search tool (grep alternative)"
 brew install tree && echo "displays directory structures in a tree-like format"
@@ -78,6 +81,7 @@ brew install yq && echo "command-line YAML processor (like jq but for YAML)"
 brew install jsonpp && echo "pretty-prints JSON for easier reading"
 brew install pandoc
 brew install glow
+brew install graphviz && echo "graph visualization toolkit (DOT diagrams and dependency graphs)"
 brew install stow && echo "manages dotfiles and symlinked configurations"
 brew install trash && echo "safely moves files to the Trash instead of permanent deletion"
 brew install wget && echo "downloads files from the web via HTTP, HTTPS, or FTP"
@@ -98,7 +102,6 @@ brew install terminal-notifier
 
 # Communication
 brew install --cask discord
-brew install --cask google-chat
 brew install --cask slack
 brew install --cask zoom
 

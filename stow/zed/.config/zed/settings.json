@@ -1,0 +1,180 @@
+{
+    // Editor Appearance
+    "edit_predictions": {
+        "allow_data_collection": "yes",
+    },
+    "outline_panel": {
+        "dock": "left",
+    },
+    "collaboration_panel": {
+        "dock": "left",
+    },
+    "diff_view_style": "unified",
+    "git_panel": {
+        "dock": "left",
+    },
+    "buffer_font_family": "MesloLGS Nerd Font Mono",
+    "buffer_font_size": 15,
+    "tab_size": 4,
+    "preview_tabs": {
+        "enabled": false,
+    },
+    "project_panel": {
+        "dock": "left",
+    },
+    "gutter": {
+        "line_numbers": true,
+    },
+    "minimap": {
+        "show": "never",
+    },
+    // Theme
+    "theme": {
+        "mode": "dark",
+        "light": "One Light",
+        "dark": "Catppuccin Mocha",
+    },
+    "icon_theme": {
+        "mode": "dark",
+        "light": "Catppuccin Mocha",
+        "dark": "Catppuccin Mocha",
+    },
+    // "tabs": { "file_icons": true },
+    // Terminal
+    "terminal": {
+        "dock": "bottom",
+        "font_family": "MesloLGS Nerd Font Mono",
+        "font_size": 15,
+        "cursor_shape": "bar",
+    },
+    // Editor Behavior
+    "file_scan_exclusions": ["**/.DS_Store"],
+    "autosave": {
+        "after_delay": { "milliseconds": 500 },
+    },
+    "format_on_save": "on",
+    "restore_on_startup": "last_session",
+    "show_completions_on_input": true,
+    "vim_mode": true,
+    "ui_font_size": 16,
+    "relative_line_numbers": "enabled",
+    "cursor_blink": false,
+    "scrollbar": { "show": "never" },
+    "buffer_line_height": { "custom": 1.5 },
+    "agent_servers": {
+        "claude-acp": {
+            "type": "registry",
+        },
+    },
+    "agent": {
+        "play_sound_when_agent_done": "always",
+        "default_profile": "ask",
+        "dock": "right",
+    },
+    "cli_default_open_behavior": "existing_window",
+    // Privacy & Telemetry
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false,
+    },
+    // Language-Specific Settings
+    "languages": {
+        "Python": {
+            "language_servers": ["!ty", "ruff", "basedpyright"],
+            "formatter": {
+                "external": {
+                    "command": "ruff",
+                    "arguments": [
+                        "format",
+                        "--stdin-filename",
+                        "{buffer_path}",
+                        "-",
+                    ],
+                },
+            },
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": true,
+            },
+            "format_on_save": "on",
+        },
+        "Terraform": {
+            // in Zed tflint is implemented as a LSP
+            "language_servers": ["tflint", "terraform-ls"],
+            "formatter": {
+                "external": {
+                    "command": "sh",
+                    "arguments": ["-c", "terraform fmt - | cat -s"],
+                },
+            },
+            "format_on_save": "on",
+        },
+        "Lua": {
+            "formatter": {
+                "external": {
+                    "command": "stylua",
+                    "arguments": ["-"],
+                },
+            },
+            "format_on_save": "on",
+        },
+        "TOML": {
+            "formatter": {
+                "external": {
+                    "command": "taplo",
+                    "arguments": ["fmt", "-o", "indent_string=    ", "-"],
+                },
+            },
+            "format_on_save": "on",
+        },
+        "YAML": {
+            "formatter": "prettier",
+            "format_on_save": "on",
+        },
+        "JSON": {
+            "formatter": "prettier",
+            "format_on_save": "on",
+        },
+        "Markdown": {
+            "language_servers": ["marksman", "markdownlint"],
+            "formatter": "prettier",
+            "format_on_save": "on",
+        },
+        "Shell Script": {
+            "formatter": {
+                "external": {
+                    "command": "shfmt",
+                    "arguments": [
+                        "--filename",
+                        "{buffer_path}",
+                        "--indent",
+                        "4",
+                    ],
+                },
+            },
+            "format_on_save": "on",
+        },
+    },
+    "lsp": {
+        "markdownlint": {
+            "settings": {
+                "default": true,
+                "MD003": { "style": "atx" },
+                "MD004": { "style": "dash" },
+                "MD009": false,
+                "MD013": false,
+                "MD024": { "siblings_only": true },
+                "MD026": { "punctuation": ".,;:!。，；：！？" },
+                "MD029": false,
+                "MD033": false,
+                "MD034": false,
+                "MD035": { "style": "---" },
+                "MD036": false,
+                "MD041": true,
+                "MD044": false,
+                "MD046": { "style": "fenced" },
+                "MD049": false,
+                "MD052": false,
+            },
+        },
+    },
+}

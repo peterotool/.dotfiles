@@ -1,4 +1,16 @@
-export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+# https://github.com/radleylewis/zsh/blob/2edf9f4c271ae1bee91e6e4e30db5ce580810d27/bindings.zsh
+# Cursor shape per vi mode
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+
+# Disable command mode line highlight
+ZVM_VI_HIGHLIGHT_BACKGROUND=none
+ZVM_VI_HIGHLIGHT_FOREGROUND=none
+ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
+
+
 export VISUAL=nvim
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
