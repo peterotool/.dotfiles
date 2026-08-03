@@ -1,4 +1,3 @@
-alias t='terraform'
 alias ta='tmux attach -t'
 
 alias s='source ~/.zshrc'
@@ -7,7 +6,7 @@ alias c="clear"
 alias cd="z"
 alias dc=cd
 alias cat="bat -p"
-alias g="glow -p -w 200"
+alias g="glow -p -s dark"
 
 # Take whatever JSON I currently have copied, pretty-print it, and replace the clipboard with the formatted version.
 alias jj='pbpaste | jsonpp | pbcopy'
@@ -48,6 +47,24 @@ a() {
   else
     echo "❌ No .venv found"
   fi
+}
+
+jlab() {
+    local withs=()
+
+    if [[ $# -eq 0 ]]; then
+        uv run --with jupyterlab jupyter-lab
+        return
+    fi
+
+    local target="${@[-1]}"        # último argumento = path
+    local libs=("${@[1,-2]}")      # todos los anteriores = librerías
+
+        for lib in "${libs[@]}"; do
+            withs+=(--with "$lib")
+        done
+
+        uv run --with jupyterlab "${withs[@]}" jupyter-lab "$target"
 }
 
 function take {

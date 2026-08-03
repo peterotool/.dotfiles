@@ -8,16 +8,18 @@ brew install --cask bitwarden
 
 # Databases & API Tools
 brew install --cask dbeaver-community
-brew install --cask postman
+# brew install --cask postman
+brew install --cask bruno
 
 # Fonts
 brew install --cask font-meslo-lg-nerd-font
 
 # Terminals & Shell UX
 brew install --cask ghostty
-brew install tmux
-brew install starship
 brew install antigen && echo "plugin manager for Zsh"
+brew install herdr
+brew install starship
+brew install tmux
 brew install zsh-syntax-highlighting && echo "adds syntax coloring to ZSH commands"
 brew install zsh-vi-mode && echo "enables Vim-style keybindings in Zsh"
 

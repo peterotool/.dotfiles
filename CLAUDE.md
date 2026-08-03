@@ -11,7 +11,7 @@ Personal macOS dotfiles managed with **GNU Stow**. Each directory under `stow/` 
 | Script | Purpose |
 |--------|---------|
 | `dotfiles.sh` | Bootstrap a new machine: installs Xcode CLT, Homebrew, git, clones the repo, runs `install.sh` |
-| `install.sh` | Stows all packages and initializes git submodules |
+| `install.sh` | Stows all packages and initializes git submodules (skips already-registered ones) |
 | `scripts/config.sh` | Defines `stow_dotfiles()` — the function that removes existing files/folders and runs `stow` for each package |
 | `scripts/install-brew-packages.sh` | Installs all Homebrew formulae and casks (run manually) |
 
@@ -38,6 +38,9 @@ Each subdirectory of `stow/` maps to a tool's config:
 - `alacritty/` — catppuccin theme submodule
 - `scripts/` — custom shell scripts installed to `~/.local/scripts/`
 - `zed/`, `ghostty/`, `starship/`, `yazi/`, `vscode/`, `ruff/`, `fd/`, `ripgrep/`
+- `claude/` — `.claude.json` (Claude Code config)
+- `codeen/` — `.config/codeen/config.codeen.yaml`
+- `herdr/` — `.config/herdr/config.toml`
 
 `vscode/` is special: stowed into `~/Library/Application Support/Code/User` instead of `$HOME`.
 

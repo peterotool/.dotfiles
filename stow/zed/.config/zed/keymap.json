@@ -5,7 +5,6 @@
             "cmd-1": "workspace::ToggleLeftDock",
             "cmd-2": "workspace::ToggleRightDock",
             "ctrl-`": "workspace::ToggleBottomDock",
-            "zlog": "zed::OpenLog",
             "ctrl-h": "workspace::ActivatePaneLeft",
             "ctrl-l": "workspace::ActivatePaneRight",
             "cmd-.": "projects::OpenRecent",
@@ -28,7 +27,7 @@
     {
         "context": "Pane",
         "bindings": {
-            "ctrl-tab": "pane::ActivateNextItem",
+            // "ctrl-tab": "pane::ActivateNextItem",
             "ctrl-shift-tab": "pane::ActivatePreviousItem",
         },
     },

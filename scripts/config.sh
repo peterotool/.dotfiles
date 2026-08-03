@@ -14,6 +14,7 @@ stow_dotfiles() {
         "aliases.zsh"
         "history.zsh"
         ".editorconfig"
+        ".claude.json"
         "Library/Application Support/Code/User/settings.json" # vscode
     )
     local folders=(
@@ -26,6 +27,8 @@ stow_dotfiles() {
         ".config/ruff"
         ".config/zed"
         ".config/yazi"
+        ".config/herdr"
+        ".config/codeen"
         ".config/editorconfig"
         ".tmux/plugins"
         ".local/scripts"
@@ -42,7 +45,8 @@ stow_dotfiles() {
         mkdir -p "$HOME/$d"
     done
 
-    local STOW_FOLDERS="$(find stow -maxdepth 1 -type d -mindepth 1 | awk -F "/" '{print $NF}' ORS=' ')"
+    local STOW_FOLDERS
+    STOW_FOLDERS="$(find stow -maxdepth 1 -type d -mindepth 1 | awk -F "/" '{print $NF}' ORS=' ')"
     echo "Stowing: $STOW_FOLDERS"
 
     for folder in $STOW_FOLDERS; do

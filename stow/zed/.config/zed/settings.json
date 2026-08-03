@@ -77,6 +77,10 @@
         "diagnostics": false,
         "metrics": false,
     },
+
+    "file_types": {
+        "Dockerfile": ["Docker*"],
+    },
     // Language-Specific Settings
     "languages": {
         "Python": {

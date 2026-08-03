@@ -1,0 +1,91 @@
+# Codeen Version configuration
+version: 0.2.0
+
+mcp-servers:
+  - namespace: infrastructure
+    name: terraform
+    url: https://cosmos-stellar-mcp-cr-1024012608689.us-east1.run.app/terraform
+  - namespace: aiops
+    name: mlops
+    url: https://mlops-agent-mcp-cr-1024012608689.us-east1.run.app/mlops
+    access_token: true
+  - namespace: cosmos
+    name: docs
+    url: https://cosmos-stellar-mcp-cr-1024012608689.us-east1.run.app/cosmos-docs
+    access_token: false
+    identity_token: true
+  - namespace: cosmos
+    name: genai
+    url: https://genai-mcp-general-server-cr-1024012608689.us-east1.run.app/
+    access_token: false
+    identity_token: true
+  - namespace: cosmos
+    name: ml-builder
+    url: https://ml-builder-mcp-server-cr-1024012608689.us-east1.run.app/streamable/ml-builder
+    access_token: true
+    identity_token: true
+  - namespace: cosmos
+    name: mlops
+    url: https://mlops-agent-mcp-cr-1024012608689.us-east1.run.app/streamable/mlops
+    access_token: true
+    identity_token: true
+  - namespace: cosmos
+    name: resilience
+    url: https://cosmos-resilience-documentation-mcp-cr-1024012608689.us-east1.run.app/resilience
+    access_token: false
+    identity_token: true
+  - namespace: cosmos
+    name: terraform
+    url: https://cosmos-stellar-mcp-cr-1024012608689.us-east1.run.app/streamable/terraform
+    access_token: false
+    identity_token: false
+  - namespace: cosmos
+    name: cpm-documentation
+    url: https://cpm-documentation-retriever-cr-254299533991.us-east1.run.app/
+    access_token: false
+    identity_token: true
+  - namespace: cosmos
+    name: grafana
+    url: https://cosmos-resilience-dashboard-mcp-cr-1024012608689.us-east1.run.app/grafana
+    access_token: false
+    identity_token: false
+  - namespace: cosmos
+    name: dataviz
+    url: https://cosmos-ui-assistant-mcp-server-cr-452352695599.us-east1.run.app/dataviz
+    access_token: true
+    identity_token: false
+  - namespace: cosmos
+    name: troubleshooting
+    url: https://horizon-troubleshooting-mcp-t-server-cr-1024012608689.us-east1.run.app/
+    access_token: true
+    identity_token: true
+  - namespace: cosmos
+    name: grafana-dashboards
+    url: https://cosmos-resilience-dashboard-mcp-cr-1024012608689.us-east1.run.app/grafana
+    access_token: false
+    identity_token: true
+  - namespace: cosmos
+    name: terraform-docs
+    url: https://cosmos-stellar-mcp-cr-1024012608689.us-east1.run.app/streamable/terraform
+    access_token: false
+    identity_token: true
+  - namespace: cosmos
+    name: ui-assistant-dataviz
+    url: https://cosmos-ui-assistant-retriever-cr-1024012608689.us-east1.run.app/mcp
+    access_token: true
+    identity_token: true
+  - namespace: cosmos
+    name: data-engineer-helper-bigquery-diagnostics
+    url: https://data-engineer-helper-bigquery-diagnostics-cr-1064684233169.us-east1.run.app/
+    access_token: true
+    identity_token: true
+  - namespace: governance
+    name: datahub-mcp
+    url: https://governance-mcp-service-cr-994421678773.us-east1.run.app/
+    access_token: true
+    identity_token: false
+  - namespace: cosmos
+    name: cosmos-backstage-mcp
+    url: https://cosmos-catalog-mcp-cr-1076350938146.us-east1.run.app/
+    access_token: false
+    identity_token: true
