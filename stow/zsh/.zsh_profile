@@ -1,14 +1,46 @@
-# https://github.com/radleylewis/zsh/blob/2edf9f4c271ae1bee91e6e4e30db5ce580810d27/bindings.zsh
-# Cursor shape per vi mode
-ZVM_SYSTEM_CLIPBOARD_ENABLED=true
-ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
-ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+# https://github.com/jeffreytse/zsh-vi-mode
 
-# Disable command mode line highlight
-ZVM_VI_HIGHLIGHT_BACKGROUND=none
-ZVM_VI_HIGHLIGHT_FOREGROUND=none
+# Enable integration with the system clipboard.
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+
+# Start every new command line in Insert mode.
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+
+
+# Use a beam-shaped cursor in Insert mode.
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+# Use a block-shaped cursor in Normal mode.
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+# Use a beam-shaped cursor in Visual mode.
+ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BEAM
+
+# Use a beam-shaped cursor when selecting an entire line.
+ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BEAM
+
+
+# Use a white background for visual selections.
+ZVM_VI_HIGHLIGHT_BACKGROUND=white
+# Use black text for better contrast against the white background.
+ZVM_VI_HIGHLIGHT_FOREGROUND=black
+# Disable additional selection styles, such as bold or underline.
 ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
+
+# bindkey :: check all available bindkeys
+#
+# zsh-vi-mode resets all bindings on init, so custom bindings
+# must be registered via this hook to survive.
+zvm_after_init() {
+
+  zvm_bindkey viins '^R' tv-shell-history
+  zvm_bindkey viins '^T' tv-search
+
+  zvm_bindkey vicmd '^R' tv-shell-history
+  zvm_bindkey vicmd '^T' tv-search
+
+  zvm_bindkey visual '^R' tv-shell-history
+  zvm_bindkey visual '^T' tv-search
+
+}
 
 
 export VISUAL=nvim

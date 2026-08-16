@@ -9,6 +9,7 @@ antigen use oh-my-zsh
 antigen bundle extract
 antigen apply
 
+
 # load env (variables)
 source $HOME/.zsh_profile
 
@@ -69,7 +70,16 @@ export PATH="/Users/peter/.local/bin/codeen:$PATH"
 
 eval "$(starship init zsh)"
 
-export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1
 eval "$(tv init zsh)"
+source $HOME/.config/television/shell/integration.zsh
+
+# open git remote in browser (same binding as tmux/herdr)
+function _open_git_remote_url() {
+    ~/.local/scripts/open-git-remote-url.sh &>/dev/null &
+    zle reset-prompt
+}
+zle -N _open_git_remote_url
+zvm_after_init_commands+=('bindkey "ñ" _open_git_remote_url')
+
 # IMPORTANT: must be the last thing
 eval "$(zoxide init zsh)"

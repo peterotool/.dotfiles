@@ -28,6 +28,7 @@ stow_dotfiles() {
         ".config/zed"
         ".config/yazi"
         ".config/herdr"
+        ".config/television"
         ".config/codeen"
         ".config/editorconfig"
         ".tmux/plugins"

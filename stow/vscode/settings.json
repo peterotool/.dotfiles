@@ -126,6 +126,14 @@
   },
   "claudeCode.preferredLocation": "panel",
   "claudeCode.disableLoginPrompt": true,
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
   /*
   "vim.leader": "<Space>",
   "vim.incsearch": true,

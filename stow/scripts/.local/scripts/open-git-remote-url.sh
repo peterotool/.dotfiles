@@ -28,17 +28,68 @@ if [[ -z "$url" ]]; then
     exit 1
 fi
 
-# Normalize GitHub/GitLab SSH URLs to HTTPS
+# Check which Git hosting service the URL belongs to.
 case "$url" in
+
+# The pattern matches URLs beginning with "git@github.com:".
+#
+# The ")" marks the end of the pattern and the beginning of
+# the commands that should run when the pattern matches.
 git@github.com:*)
+    # ${url#git@github.com:}
+    # The "#" removes the matching text from the beginning of $url.
+    #
+    # Example:
+    # ${url#git@github.com:}
+    # turns:
+    # git@github.com:owner/repository.git
+    # into:
+    # owner/repository.git
+    #
+    # Then the HTTPS prefix is added:
+    # https://github.com/owner/repository.git
     url="https://github.com/${url#git@github.com:}"
+
+    # The ";;" marks the end of this case branch.
     ;;
+
+# The pattern matches URLs beginning with "git@gitlab.com:".
+#
+# The ")" ends the pattern and starts the GitLab commands.
 git@gitlab.com:*)
+    # "#" removes "git@gitlab.com:" from the beginning of $url.
+    # Then "https://gitlab.com/" is added.
     url="https://gitlab.com/${url#git@gitlab.com:}"
+
+    # End this case branch.
     ;;
+
+# The pattern matches URLs beginning with "git@bitbucket.org:".
+#
+# The ")" ends the pattern and starts the Bitbucket commands.
+git@bitbucket.org:*)
+    # "#" removes "git@bitbucket.org:" from the beginning of $url.
+    # Then "https://bitbucket.org/" is added.
+    url="https://bitbucket.org/${url#git@bitbucket.org:}"
+
+    # End this case branch.
+    ;;
+
+# "esac" ends the entire case statement.
+# It is "case" written backward.
 esac
 
-# Remove trailing .git
+# "${url%.git}"
+# The "%" removes the matching text from the end of $url.
+#
+# Example:
+# ${url%.git}
+# turns:
+# https://github.com/owner/repository.git
+# into:
+# https://github.com/owner/repository
+#
+# If the URL does not end with ".git", it remains unchanged.
 url="${url%.git}"
 
 # Open in browser
