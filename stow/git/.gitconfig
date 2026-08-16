@@ -12,9 +12,17 @@
 	reflog = delta
 	show = delta
 
-[user]
-	name = José Pedro
-	email = josecordero.imagemaker@latam.com
+[includeIf "gitdir:~/Work/"]
+    path = ~/.gitconfig-gitlab
+
+[includeIf "gitdir:~/Code/"]
+    path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/.dotfiles/"]
+    path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/Code/cursor/"]
+    path = ~/.gitconfig-bitbucket
 
 [interactive]
 	diffFilter = delta --color-only
@@ -63,7 +71,7 @@
 	rebase = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
