@@ -9,7 +9,7 @@
 
     {
         "label": "Television File Finder",
-        "command": "zed \"$(tv --source-command 'find . -type f')\"",
+        "command": "zed \"$(tv --source-command 'find . -type f -not -path \"*/__pycache__/*\" -not -path \"./.venv/*\" -not -path \"./.git/*\" -not -path \"./.ruff_cache/*\"')\"",
         "hide": "always",
         "allow_concurrent_runs": true,
         "use_new_terminal": true,

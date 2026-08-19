@@ -9,7 +9,7 @@
     "collaboration_panel": {
         "dock": "left",
     },
-    "diff_view_style": "unified",
+    "diff_view_style": "split",
     "git_panel": {
         "dock": "left",
     },
@@ -38,6 +38,11 @@
         "mode": "dark",
         "light": "Catppuccin Mocha",
         "dark": "Catppuccin Mocha",
+    },
+    // Markdown
+    "markdown_preview": {
+        "limit_content_width": false,
+        "max_width": 600,
     },
     // "tabs": { "file_icons": true },
     // Terminal

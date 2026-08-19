@@ -70,13 +70,15 @@ brew install --cask github
 brew install bat && echo "cat clone with syntax highlighting and Git integration"
 brew install cheat && echo "view and create interactive cheat sheets in the terminal"
 brew install fd && echo "simple, fast, user-friendly alternative to find"
-brew install television
+brew install forgit
 brew install fzf && echo "interactive fuzzy finder for command-line search"
 brew install ripgrep && echo "fast recursive search tool (grep alternative)"
+brew install television
 brew install tree && echo "displays directory structures in a tree-like format"
-brew install zoxide && echo "smarter, faster cd command for quick directory jumping"
+brew install tuicr
 brew install yazi && echo "fast terminal file manager written in Rust"
-
+brew install zoxide && echo "smarter, faster cd command for quick directory jumping"
+#
 # Data, Text & Files
 brew install jq && echo "lightweight and flexible command-line JSON processor"
 brew install yq && echo "command-line YAML processor (like jq but for YAML)"

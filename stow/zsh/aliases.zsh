@@ -21,14 +21,14 @@ alias sw='bash ~/.local/scripts/gcloud-switch-account.sh'
 # Chronological Git history view
 # Best for daily development, code reviews, and understanding recent activity.
 # Preserves graph readability while showing commits mostly in time order.
-alias ghist="git log --all --graph --decorate=short --date-order \
+alias glog="git log --all --graph --decorate=short --date-order \
 --pretty=format:'%C(auto)%h%Creset %C(yellow)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset' \
 --abbrev-commit --date=relative"
 
 # Topology-first Git branch tree
 # Best for debugging merges, rebases, and understanding branch ancestry.
 # Strictly preserves branch topology and merge relationships.
-alias gtree="git log --all --graph --decorate=short --topo-order \
+alias gtop="git log --all --graph --decorate=short --topo-order \
 --pretty=format:'%C(auto)%h%Creset %C(red)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset' \
 --abbrev-commit --date=relative"
 
