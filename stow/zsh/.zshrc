@@ -1,6 +1,8 @@
 # plugins / antigen
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # https://zenzes.me/mastering-your-zsh-configuration-with-antigen-and-oh-my-zsh/
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+_ANTIGEN_WARN_DUPLICATES=false
 source $(brew --prefix)/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -8,7 +10,6 @@ antigen use oh-my-zsh
 # load plugins
 antigen bundle extract
 antigen apply
-
 
 # load env (variables)
 source $HOME/.zsh_profile
@@ -29,7 +30,6 @@ addToPathFront "$HOME/.cargo/bin"
 # ruff
 addToPathFront "$HOME/.local/bin"
 
-
 # completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fpath+=~/.zfunc
@@ -37,7 +37,6 @@ autoload -Uz compinit && compinit
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-
 
 # misc autoloads
 autoload -U zmv
@@ -50,14 +49,19 @@ if [ -f "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.
 fi
 
 # cloud / k8s
-if [ $commands[gcloud] ]; then source $(brew --prefix)/share/google-cloud-sdk/path.zsh.inc; fi
-if [ $commands[gcloud] ]; then source $(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc; fi
-if [ $commands[helm] ]; then source <(helm completion zsh); fi
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+if [ "${commands[gcloud]}" ]; then source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"; fi
+if [ "${commands[gcloud]}" ]; then source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"; fi
+if [ "${commands[helm]}" ]; then source <(helm completion zsh); fi
+[[ "${commands[kubectl]}" ]] && source <(kubectl completion zsh)
+
+# https://github.com/wfxr/forgit
+[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
+# export FORGIT_LOG_GIT_OPTS='--date-order'
+# export FORGIT_LOG_FZF_OPTS='--no-sort'
 
 # uv completion
 _uv_run_mod() {
-    if [[ "$words[2]" == "run" && "$words[CURRENT]" != -* ]]; then
+    if [[ "${words[2]}" == "run" && "${words[CURRENT]}" != -* ]]; then
         _arguments '*:filename:_files -g "*.py"'
     else
         _uv "$@"
@@ -71,7 +75,9 @@ export PATH="/Users/peter/.local/bin/codeen:$PATH"
 eval "$(starship init zsh)"
 
 eval "$(tv init zsh)"
-source $HOME/.config/television/shell/integration.zsh
+# shellcheck source=/Users/peter/.config/television/shell/integration.zsh
+# shellCheck cannot resolve $HOME in the path and interprets it as a relative path.
+source "$HOME/.config/television/shell/integration.zsh"
 
 # open git remote in browser (same binding as tmux/herdr)
 function _open_git_remote_url() {
