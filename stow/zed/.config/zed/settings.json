@@ -131,11 +131,27 @@
       "format_on_save": "on"
     },
     "YAML": {
-      "formatter": "prettier",
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      },
       "format_on_save": "on"
     },
     "JSON": {
-      "formatter": "prettier",
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      },
       "format_on_save": "on"
     },
     "Markdown": {
