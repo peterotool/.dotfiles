@@ -99,10 +99,11 @@ brew install poppler && echo "PDF rendering library (for previewing PDFs)"
 brew install yt-dlp && echo "downloads videos from YouTube and other sites"
 
 # Monitoring & Diagnostics
+brew install btop
 brew install htop
-brew install watch
 brew install keycastr
 brew install terminal-notifier
+brew install watch
 
 # Communication
 brew install --cask discord

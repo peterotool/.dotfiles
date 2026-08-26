@@ -74,7 +74,12 @@ export PATH="/Users/peter/.local/bin/codeen:$PATH"
 
 eval "$(starship init zsh)"
 
+eval "$(zed --completions zsh)"
+
+eval "$(herdr completion zsh)"
+
 eval "$(tv init zsh)"
+
 # shellcheck source=/Users/peter/.config/television/shell/integration.zsh
 # shellCheck cannot resolve $HOME in the path and interprets it as a relative path.
 source "$HOME/.config/television/shell/integration.zsh"
