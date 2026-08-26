@@ -134,10 +134,7 @@
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": [
-            "--stdin-filepath",
-            "{buffer_path}"
-          ]
+          "arguments": ["--tab-width", "4", "--stdin-filepath", "{buffer_path}"]
         }
       },
       "format_on_save": "on"
@@ -146,10 +143,7 @@
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": [
-            "--stdin-filepath",
-            "{buffer_path}"
-          ]
+          "arguments": ["--tab-width", "4", "--stdin-filepath", "{buffer_path}"]
         }
       },
       "format_on_save": "on"
@@ -159,6 +153,8 @@
         "external": {
           "command": "prettier",
           "arguments": [
+            "--tab-width",
+            "4",
             "--prose-wrap",
             "always",
             "--stdin-filepath",
