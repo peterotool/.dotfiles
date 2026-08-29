@@ -90,7 +90,11 @@ function _open_git_remote_url() {
     zle reset-prompt
 }
 zle -N _open_git_remote_url
-zvm_after_init_commands+=('bindkey "ñ" _open_git_remote_url')
+# ensure main uses viins so the ñ keybinding works consistently across terminal contexts
+zvm_after_init_commands+=(
+    'bindkey -A viins main'
+    'bindkey -M viins $'\''\u00f1'\'' _open_git_remote_url'
+)
 
 # IMPORTANT: must be the last thing
 eval "$(zoxide init zsh)"

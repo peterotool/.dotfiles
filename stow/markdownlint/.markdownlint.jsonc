@@ -1,0 +1,52 @@
+{
+    // First, set the default
+    "default": true,
+    // MD041: Ensure the first line of the file is a top-level heading
+    "MD041": true,
+    // MD046: Specify the style for code blocks (fenced or indented)
+    "MD046": {
+        "style": "fenced",
+    },
+    // MD049: Ensure emphasis styles (e.g., bold, italic) are consistent
+    "MD049": false,
+    // MD003: Specify the style for headers (e.g., "atx" for #, "setext" for ===)
+    "MD003": {
+        "style": "atx",
+    },
+    // MD035: Specify the style for horizontal rules (e.g., "---")
+    "MD035": {
+        "style": "---",
+    },
+    // MD013: Configure line length rules for code blocks, tables, and headings
+    "MD013": false,
+    // MD024: Disallow duplicate headings within the same parent section
+    "MD024": {
+        "siblings_only": true, // Only check for duplicates among sibling headings
+    },
+    // MD036: Disallow emphasis (e.g., bold, italic) as a substitute for headings
+    "MD036": false,
+    // MD033: Disallow inline HTML in Markdown
+    "MD033": false,
+    // MD026: Disallow trailing punctuation in headings
+    "MD026": {
+        "punctuation": ".,;:!。，；：！？", // List of punctuation characters to check
+    },
+    // MD009: Disallow trailing spaces at the end of lines
+    "MD009": false,
+    // MD052: Disallow reference-style links and images
+    "MD052": false,
+    // MD004: Specify the style for unordered lists (e.g., "dash" for "-", "asterisk" for "*")
+    "MD004": {
+        "style": "dash",
+    },
+    // MD007: Set the indentation level for unordered lists
+    "MD007": {
+        "indent": 4,
+    },
+    // MD034: Disallow bare URLs (URLs must be wrapped in angle brackets or links)
+    "MD034": false,
+    // MD029: Disallow inconsistent ordered list prefixes (e.g., "1. 1. 1.")
+    "MD029": false,
+    // MD044: Ensure proper names are spelled correctly
+    "MD044": false,
+}
