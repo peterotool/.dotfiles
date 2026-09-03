@@ -1,78 +1,81 @@
 [
-  {
-    "context": "Workspace",
-    "bindings": {
-      "cmd-1": "workspace::ToggleLeftDock",
-      "cmd-2": "workspace::ToggleRightDock",
-      "ctrl-`": "workspace::ToggleBottomDock",
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "cmd-.": "projects::OpenRecent"
-      // "cmd-r": [
-      //     "task::Spawn",
-      //     {
-      //         "task_name": "r/python",
-      //     },
-      // ],
-    }
-  },
-  {
-    "context": "Pane",
-    "bindings": {
-      // "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePreviousItem"
-    }
-  },
-  {
-    "context": "VimControl && !menu",
-    // Put key bindings here if you want them to work in normal & visual mode.
-    "bindings": {
-      "cmd-.": "projects::OpenRecent",
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-1": "workspace::ToggleLeftDock",
+            "cmd-2": "workspace::ToggleRightDock",
+            "ctrl-`": "workspace::ToggleBottomDock",
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "cmd-.": "projects::OpenRecent"
+            // "cmd-r": [
+            //     "task::Spawn",
+            //     {
+            //         "task_name": "r/python",
+            //     },
+            // ],
+        }
+    },
+    {
+        "context": "Pane",
+        "bindings": {
+            // "ctrl-tab": "pane::ActivateNextItem",
+            "ctrl-shift-tab": "pane::ActivatePreviousItem"
+        }
+    },
+    {
+        "context": "VimControl && !menu",
+        // Put key bindings here if you want them to work in normal & visual mode.
+        "bindings": {
+            //https://github.com/zed-industries/zed/discussions/48785
+            "space": null,
 
-      "space w": "workspace::Save",
-      "space q": "pane::CloseActiveItem",
-      "space shift-q": "pane::CloseCleanItems",
+            "cmd-.": "projects::OpenRecent",
 
-      "space s b": "tab_switcher::Toggle",
+            "space w": "workspace::Save",
+            "space q": "pane::CloseActiveItem",
+            "space shift-q": "pane::CloseCleanItems",
 
-      "space t": "workspace::NewCenterTerminal",
-      "space s g": "workspace::NewSearch",
-      "space c p": "workspace::CopyPath",
-      "space c f": "editor::CopyFileName",
-      "space f": "editor::Format",
-      "cmd-/": "editor::ToggleComments",
-      "g shift-v": "editor::GoToDefinitionSplit",
-      "shift-k": "editor::Hover",
-      "space a": "editor::ToggleCodeActions",
-      "space d": "diagnostics::Deploy",
-      "alt-ñ": "vim::ChangeCase", // ~
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp"
+            "space s b": "tab_switcher::Toggle",
+
+            "space t": "workspace::NewCenterTerminal",
+            "space s g": "workspace::NewSearch",
+            "space c p": "workspace::CopyPath",
+            "space c f": "editor::CopyFileName",
+            "space f": "editor::Format",
+            "cmd-/": "editor::ToggleComments",
+            "g shift-v": "editor::GoToDefinitionSplit",
+            "shift-k": "editor::Hover",
+            "space a": "editor::ToggleCodeActions",
+            "space d": "diagnostics::Deploy",
+            "alt-ñ": "vim::ChangeCase", // ~
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-k": "workspace::ActivatePaneUp"
+        }
+    },
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-k": "workspace::ActivatePaneUp"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+        "bindings": {
+            "shift-j": "editor::MoveLineDown",
+            "shift-k": "editor::MoveLineUp",
+            "shift-s": "vim::PushAddSurrounds"
+        }
+    },
+    {
+        "context": "vim_mode == insert",
+        "bindings": {
+            "cmd-/": "editor::ToggleComments"
+        }
     }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
-    "bindings": {
-      "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp",
-      "shift-s": "vim::PushAddSurrounds"
-    }
-  },
-  {
-    "context": "vim_mode == insert",
-    "bindings": {
-      "cmd-/": "editor::ToggleComments"
-    }
-  }
 ]

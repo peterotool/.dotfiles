@@ -121,8 +121,8 @@
   "docker.extension.enableComposeLanguageServer": false,
   "terminal.integrated.initialHint": false,
   "azureTerraform.survey": {
-    "surveyPromptDate": "2026-06-03T22:53:12.441Z",
-    "surveyPromptIgnoredCount": 3,
+    "surveyPromptDate": "2026-10-01T15:40:29.249Z",
+    "surveyPromptIgnoredCount": 4
   },
   "claudeCode.preferredLocation": "panel",
   "claudeCode.disableLoginPrompt": true,

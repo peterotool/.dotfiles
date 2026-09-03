@@ -7,10 +7,10 @@ focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 split_vertical = "prefix+v"
 split_horizontal = "prefix+-"
-close_tab = "prefix+ampersand"
+close_tab = "prefix+x"
 workspace_picker = "prefix+w"
 goto = "prefix+g"
-copy_mode = "prefix+y"         # herdr's copy-mode entry key; copy-mode's own internal keys (v/space select, y/Enter copy, q/Esc cancel) aren't configurable
+copy_mode = "prefix+y"        # herdr's copy-mode entry key; copy-mode's own internal keys (v/space select, y/Enter copy, q/Esc cancel) aren't configurable
 detach = "prefix+d"
 
 navigate_workspace_up = "k"
@@ -23,3 +23,33 @@ key = "prefix+ñ"
 type = "shell"
 command = "~/.local/scripts/open-git-remote-url.sh"
 description = "Open current file in remote Git Provider"
+
+# https://herdr.dev/docs/session-state/#pane-screen-history-replay
+[experimental]
+pane_history = true
+
+# https://github.com/ntindle/herdr-resurrect
+[[keys.command]]
+key = "prefix+ctrl+s"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.save"
+description = "resurrect: save"
+
+[[keys.command]]
+key = "prefix+ctrl+r"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.restore"
+description = "resurrect: restore"
+
+# named spaces (below)
+[[keys.command]]
+key = "prefix+S"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.save-space"
+description = "resurrect: save this space as…"
+
+[[keys.command]]
+key = "prefix+O"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.open-space"
+description = "resurrect: open saved space…"

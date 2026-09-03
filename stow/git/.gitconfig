@@ -21,6 +21,9 @@
 [includeIf "gitdir:~/.dotfiles/"]
     path = ~/.gitconfig-github
 
+[includeIf "gitdir:~/"]
+    path = ~/.gitconfig-github
+
 [includeIf "gitdir:~/Code/cursor/"]
     path = ~/.gitconfig-bitbucket
 
