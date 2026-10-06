@@ -1,3 +1,4 @@
 .DS_STORE
 *.so
 *.dylib
+**/.claude.json

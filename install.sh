@@ -1,29 +1,41 @@
 #!/usr/bin/env bash
 
+# Detiene el script si ocurre un error.
 set -o errexit
+
+# Detiene el script si se utiliza una variable no definida.
 set -o nounset
+
+# Propaga errores ocurridos dentro de pipelines.
 set -o pipefail
 
 . scripts/config.sh
-# . scripts/osx.sh
 
 main() {
+    echo "Installing Git submodules..."
+
+    # Sincroniza las URLs configuradas en .gitmodules
+    # con la configuración local de Git.
+    git submodule sync --recursive
+
+    # Inicializa e instala todos los submódulos definidos
+    # en .gitmodules, incluyendo submódulos anidados.
+    #
+    # Si ya están instalados, Git no los duplica.
+    # Además, los posiciona en el commit registrado
+    # por el repositorio principal.
+    git submodule update --init --recursive
+
     echo "Stowing dotfiles..."
+
+    # Crea los enlaces simbólicos de los archivos de configuración.
+    # La función stow_dotfiles está definida en uno de
+    # los scripts cargados anteriormente.
     stow_dotfiles
 
-    echo "Adding Git submodules"
-    git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
-        while read path_key local_path; do
-            name=$(echo "$path_key" | sed 's/submodule\.\(.*\)\.path/\1/')
-            if git config --get "submodule.$name.url" > /dev/null 2>&1; then
-                echo "Submodule '$name' already registered, skipping..."
-                continue
-            fi
-            url_key=$(echo "$path_key" | sed 's/\.path/.url/')
-            url=$(git config -f .gitmodules --get "$url_key")
-            git submodule add "$url" "$local_path"
-        done
-
+    echo "Done."
 }
 
-main
+# Ejecuta la función principal y transmite los argumentos
+# recibidos por el script.
+main "$@"
