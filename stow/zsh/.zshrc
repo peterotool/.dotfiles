@@ -33,7 +33,7 @@ addToPathFront "$HOME/.local/bin"
 # completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fpath+=~/.zfunc
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -u
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

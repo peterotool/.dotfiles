@@ -19,9 +19,6 @@
     "preview_tabs": {
         "enabled": false
     },
-    "project_panel": {
-        "dock": "left"
-    },
     "gutter": {
         "line_numbers": true
     },
@@ -51,6 +48,15 @@
         "font_family": "MesloLGS Nerd Font Mono",
         "font_size": 15,
         "cursor_shape": "bar"
+    },
+    "project_panel": {
+        "dock": "left",
+        "hide_gitignore": false,
+        "auto_reveal_entries": true
+    },
+    // Search
+    "search": {
+        "include_ignored": true
     },
     // Editor Behavior
     "vim_mode": true,
