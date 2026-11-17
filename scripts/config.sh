@@ -4,7 +4,6 @@ stow_dotfiles() {
     # Individual files that will be symlinked directly into $HOME.
     # These are removed and re-created as symlinks on each run.
     local files=(
-        ".claude.json"
         ".config/starship.toml"
         ".editorconfig"
         ".gcloud-switch-account.sh"

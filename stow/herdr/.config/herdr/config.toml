@@ -1,4 +1,5 @@
 onboarding = false
+# https://herdr.dev/docs/config-reference
 [keys]
 prefix = "ctrl+a"
 focus_pane_left = "prefix+h"
@@ -7,7 +8,8 @@ focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 split_vertical = "prefix+v"
 split_horizontal = "prefix+-"
-close_tab = "prefix+x"
+close_pane = "prefix+x"
+close_tab = "prefix+shift+x"
 workspace_picker = "prefix+w"
 goto = "prefix+g"
 copy_mode = "prefix+y"        # herdr's copy-mode entry key; copy-mode's own internal keys (v/space select, y/Enter copy, q/Esc cancel) aren't configurable
@@ -28,28 +30,8 @@ description = "Open current file in remote Git Provider"
 [experimental]
 pane_history = true
 
-# https://github.com/ntindle/herdr-resurrect
 [[keys.command]]
-key = "prefix+ctrl+s"
+key = "prefix+p"
 type = "plugin_action"
-command = "ntindle.herdr-resurrect.save"
-description = "resurrect: save"
-
-[[keys.command]]
-key = "prefix+ctrl+r"
-type = "plugin_action"
-command = "ntindle.herdr-resurrect.restore"
-description = "resurrect: restore"
-
-# named spaces (below)
-[[keys.command]]
-key = "prefix+S"
-type = "plugin_action"
-command = "ntindle.herdr-resurrect.save-space"
-description = "resurrect: save this space as…"
-
-[[keys.command]]
-key = "prefix+O"
-type = "plugin_action"
-command = "ntindle.herdr-resurrect.open-space"
-description = "resurrect: open saved space…"
+command = "ray.plugin-manager.open"
+description = "open plugin manager"

@@ -70,7 +70,7 @@ _uv_run_mod() {
 compdef _uv_run_mod uv
 
 # Added by codeen install
-export PATH="/Users/peter/.local/bin/codeen:$PATH"
+# export PATH="$HOME/.local/bin/codeen:$PATH"
 
 eval "$(starship init zsh)"
 

@@ -3,6 +3,8 @@
 # Desktop & Window Management
 # brew install --cask nikitabobko/tap/aerospace -- https://nikitabobko.github.io/AeroSpace/guide
 
+brew install --cask claude
+
 # Passwords & Identity
 brew install --cask bitwarden
 
@@ -87,6 +89,7 @@ brew install pandoc
 brew install glow
 brew install graphviz && echo "graph visualization toolkit (DOT diagrams and dependency graphs)"
 brew install stow && echo "manages dotfiles and symlinked configurations"
+brew install sevenzip && echo "7-Zip file archiver with high compression"
 brew install trash && echo "safely moves files to the Trash instead of permanent deletion"
 brew install wget && echo "downloads files from the web via HTTP, HTTPS, or FTP"
 

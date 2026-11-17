@@ -6,7 +6,6 @@ ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 # Start every new command line in Insert mode.
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
-
 # Use a beam-shaped cursor in Insert mode.
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
 # Use a block-shaped cursor in Normal mode.
@@ -16,7 +15,6 @@ ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BEAM
 
 # Use a beam-shaped cursor when selecting an entire line.
 ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BEAM
-
 
 # Use a white background for visual selections.
 ZVM_VI_HIGHLIGHT_BACKGROUND=white
@@ -31,21 +29,18 @@ ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
 # must be registered via this hook to survive.
 zvm_after_init() {
 
-  zvm_bindkey viins '^R' tv-shell-history
-  zvm_bindkey viins '^T' tv-search
+    zvm_bindkey viins '^R' tv-shell-history
+    zvm_bindkey viins '^T' tv-search
 
-  zvm_bindkey vicmd '^R' tv-shell-history
-  zvm_bindkey vicmd '^T' tv-search
+    zvm_bindkey vicmd '^R' tv-shell-history
+    zvm_bindkey vicmd '^T' tv-search
 
-  zvm_bindkey visual '^R' tv-shell-history
-  zvm_bindkey visual '^T' tv-search
+    zvm_bindkey visual '^R' tv-shell-history
+    zvm_bindkey visual '^T' tv-search
 
 }
-
 
 export VISUAL=nvim
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 export RUFF_CONFIG=~/.config/ruff/ruff.toml
-export UV_EXTRA_INDEX_URL="$(pip3 config get global.extra-index-url)"
-
