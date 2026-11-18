@@ -8,12 +8,12 @@ Personal macOS dotfiles managed with **GNU Stow**. Each directory under `stow/` 
 
 ## Key scripts
 
-| Script | Purpose |
-|--------|---------|
-| `dotfiles.sh` | Bootstrap a new machine: installs Xcode CLT, Homebrew, git, clones the repo, runs `install.sh` |
-| `install.sh` | Stows all packages and initializes git submodules (skips already-registered ones) |
-| `scripts/config.sh` | Defines `stow_dotfiles()` — the function that removes existing files/folders and runs `stow` for each package |
-| `scripts/install-brew-packages.sh` | Installs all Homebrew formulae and casks (run manually) |
+| Script                             | Purpose                                                                                                       |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `dotfiles.sh`                      | Bootstrap a new machine: installs Xcode CLT, Homebrew, git, clones the repo, runs `install.sh`                |
+| `install.sh`                       | Stows all packages and initializes git submodules (skips already-registered ones)                             |
+| `scripts/config.sh`                | Defines `stow_dotfiles()` — the function that removes existing files/folders and runs `stow` for each package |
+| `scripts/install-brew-packages.sh` | Installs all Homebrew formulae and casks (run manually)                                                       |
 
 ### To apply dotfiles on an existing machine
 
@@ -37,21 +37,22 @@ Each subdirectory of `stow/` maps to a tool's config:
 - `nvim/` — submodule pointing to `git@github.com:peterotool/nvim.git`
 - `alacritty/` — catppuccin theme submodule
 - `scripts/` — custom shell scripts installed to `~/.local/scripts/`
-- `zed/`, `ghostty/`, `starship/`, `yazi/`, `vscode/`, `ruff/`, `fd/`, `ripgrep/`
-- `claude/` — `.claude.json` (Claude Code config)
+- `zed/`, `ghostty/`, `starship/`, `yazi/`, `vscode/`, `ruff/`, `fd/`, `ripgrep/`, `editorconfig/`, `markdownlint/`, `television/`
 - `codeen/` — `.config/codeen/config.codeen.yaml`
-- `herdr/` — `.config/herdr/config.toml`
+- `herdr/` — `.config/herdr/config.toml` (prefix `C-a`, plugin manager on `prefix+p`)
 
 `vscode/` is special: stowed into `~/Library/Application Support/Code/User` instead of `$HOME`.
 
 ## Git submodules
 
 Three submodules tracked in `.gitmodules`:
+
 - `stow/nvim/.config/nvim` — Neovim config (SSH remote)
 - `stow/tmux/.tmux/plugins/tpm` — Tmux Plugin Manager
 - `stow/alacritty/.config/alacritty/catppuccin` — Alacritty theme
 
 After cloning, initialize with:
+
 ```bash
 git submodule update --init --recursive
 ```
