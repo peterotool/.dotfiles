@@ -31,7 +31,7 @@ bash dotfiles.sh
 
 Each subdirectory of `stow/` maps to a tool's config:
 
-- `zsh/` — `.zshrc`, `.zsh_profile`, `aliases.zsh`, `history.zsh`
+- `zsh/` — `.zshrc`, `.zsh_profile`, `aliases.zsh`, `history.zsh`, `.config/zsh/` (OMZ-compat)
 - `git/` — `.gitconfig`, `.config/git/ignore` (uses `delta` as pager)
 - `tmux/` — `.tmux.conf` + tpm submodule at `.tmux/plugins/tpm`
 - `nvim/` — submodule pointing to `git@github.com:peterotool/nvim.git`
@@ -59,7 +59,7 @@ git submodule update --init --recursive
 
 ## Shell environment conventions
 
-- Shell: **zsh** with antigen + oh-my-zsh, `zsh-vi-mode`, `zsh-syntax-highlighting`
+- Shell: **zsh** (no plugin manager) with `zsh-vi-mode`, `zsh-syntax-highlighting` and a local oh-my-zsh snippet in `~/.config/zsh/omz-compat.zsh`; `extract`/`x` lives in `aliases.zsh`
 - Prompt: **Starship**
 - `cd` is aliased to `zoxide` (`z`)
 - `cat` is aliased to `bat -p`

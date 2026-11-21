@@ -1,15 +1,8 @@
-# plugins / antigen
-# https://zenzes.me/mastering-your-zsh-configuration-with-antigen-and-oh-my-zsh/
+# plugins (no plugin manager: brew-installed + omz-compat snippet in ~/.config/zsh)
+source $HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-_ANTIGEN_WARN_DUPLICATES=false
-source $(brew --prefix)/share/antigen/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-# load plugins
-antigen bundle extract
-antigen apply
+# subset of oh-my-zsh lib (completion, directories, misc); must precede compinit
+source $HOME/.config/zsh/omz-compat.zsh
 
 # load env (variables)
 source $HOME/.zsh_profile
@@ -31,9 +24,10 @@ addToPathFront "$HOME/.cargo/bin"
 addToPathFront "$HOME/.local/bin"
 
 # completions
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit -u
+autoload -U +X bashcompinit && bashcompinit
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -44,13 +38,13 @@ autoload -U promptinit && promptinit
 autoload -U colors && colors
 
 # syntax highlighting (SIEMPRE después de compinit)
-if [ -f "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+    source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
 # cloud / k8s
-if [ "${commands[gcloud]}" ]; then source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"; fi
-if [ "${commands[gcloud]}" ]; then source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"; fi
+if [ "${commands[gcloud]}" ]; then source "$HOMEBREW_PREFIX/share/google-cloud-sdk/path.zsh.inc"; fi
+if [ "${commands[gcloud]}" ]; then source "$HOMEBREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc"; fi
 if [ "${commands[helm]}" ]; then source <(helm completion zsh); fi
 [[ "${commands[kubectl]}" ]] && source <(kubectl completion zsh)
 

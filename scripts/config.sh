@@ -42,6 +42,7 @@ stow_dotfiles() {
         ".config/television"
         ".config/yazi"
         ".config/zed"
+        ".config/zsh"
         ".local/scripts"
         ".tmux/plugins"
     )
