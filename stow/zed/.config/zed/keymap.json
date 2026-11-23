@@ -7,21 +7,46 @@
             "ctrl-`": "workspace::ToggleBottomDock",
             "ctrl-h": "workspace::ActivatePaneLeft",
             "ctrl-l": "workspace::ActivatePaneRight",
-            "cmd-.": "projects::OpenRecent"
+            "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-alt-t": "workspace::NewCenterTerminal",
+            "ctrl-alt-b": "tab_switcher::Toggle",
+            "cmd-.": "projects::OpenRecent",
+            "cmd-alt-f": "text_finder::Toggle",
             // "cmd-r": [
             //     "task::Spawn",
             //     {
             //         "task_name": "r/python",
             //     },
             // ],
-        }
+        },
+    },
+    {
+        "context": "EmptyPane || ProjectPanel",
+        "bindings": {
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-alt-t": "workspace::NewCenterTerminal",
+            "ctrl-alt-b": "tab_switcher::Toggle",
+            "cmd-.": "projects::OpenRecent",
+            "cmd-alt-f": "text_finder::Toggle",
+        },
+    },
+    {
+        "context": "(EmptyPane || ProjectPanel) && vim_mode != insert",
+        "bindings": {
+            "space s g": "text_finder::Toggle",
+            "space s f": "file_finder::Toggle",
+        },
     },
     {
         "context": "Pane",
         "bindings": {
             // "ctrl-tab": "pane::ActivateNextItem",
-            "ctrl-shift-tab": "pane::ActivatePreviousItem"
-        }
+            "ctrl-shift-tab": "pane::ActivatePreviousItem",
+        },
     },
     {
         "context": "VimControl && !menu",
@@ -39,7 +64,9 @@
             "space s b": "tab_switcher::Toggle",
 
             "space t": "workspace::NewCenterTerminal",
-            "space s g": "workspace::NewSearch",
+            "space s g": "text_finder::Toggle",
+            "space s f": "file_finder::Toggle",
+
             "space c p": "workspace::CopyPath",
             "space c f": "editor::CopyFileName",
             "space f": "editor::Format",
@@ -52,8 +79,15 @@
             "ctrl-h": "workspace::ActivatePaneLeft",
             "ctrl-l": "workspace::ActivatePaneRight",
             "ctrl-j": "workspace::ActivatePaneDown",
-            "ctrl-k": "workspace::ActivatePaneUp"
-        }
+            "ctrl-k": "workspace::ActivatePaneUp",
+        },
+    },
+    {
+        // Editor-level default for cmd-alt-f (buffer search) takes precedence over Workspace
+        "context": "Editor",
+        "bindings": {
+            "cmd-alt-f": "text_finder::Toggle",
+        },
     },
     {
         "context": "Terminal",
@@ -61,21 +95,21 @@
             "ctrl-h": "workspace::ActivatePaneLeft",
             "ctrl-l": "workspace::ActivatePaneRight",
             "ctrl-j": "workspace::ActivatePaneDown",
-            "ctrl-k": "workspace::ActivatePaneUp"
-        }
+            "ctrl-k": "workspace::ActivatePaneUp",
+        },
     },
     {
         "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
         "bindings": {
             "shift-j": "editor::MoveLineDown",
             "shift-k": "editor::MoveLineUp",
-            "shift-s": "vim::PushAddSurrounds"
-        }
+            "shift-s": "vim::PushAddSurrounds",
+        },
     },
     {
         "context": "vim_mode == insert",
         "bindings": {
-            "cmd-/": "editor::ToggleComments"
-        }
-    }
+            "cmd-/": "editor::ToggleComments",
+        },
+    },
 ]
